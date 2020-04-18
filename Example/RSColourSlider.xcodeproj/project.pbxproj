@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		201A22795A6184280996C0F0 /* Pods_RSColourSlider_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC87DAC9CED0B2BA1036DC6A /* Pods_RSColourSlider_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		D2B16B08244AC71800B19D78 /* Pods_RSColourSlider_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC87DAC9CED0B2BA1036DC6A /* Pods_RSColourSlider_Example.framework */; };
 		E3BCA7372709FB5F392C4F9D /* Pods_RSColourSlider_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A1B09D9CA0342C072DC48F /* Pods_RSColourSlider_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				201A22795A6184280996C0F0 /* Pods_RSColourSlider_Example.framework in Frameworks */,
+				D2B16B08244AC71800B19D78 /* Pods_RSColourSlider_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
