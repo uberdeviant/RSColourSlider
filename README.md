@@ -153,18 +153,8 @@ override func viewDidLoad() {
     colourSlider.setSliderValueByColourValues(hue: 0.5, saturation: 1, brightness: 1, alpha: 1)
 }
 ```
+**TODO: setSliderValueByColourValues(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)**
 
-**setSliderValueByColourValues(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)**
-
-Moves thumb position to chosen value and updates the slider by passing HSBA values as arguments:
-
-```swift
-//for example in viewDidLoad()
-override func viewDidLoad() {
-    super.viewDidLoad()
-    colourSlider.setSliderValueByColourValues(hue: 0.5, saturation: 1, brightness: 1, alpha: 1)
-}
-```
 **setCornerRadius(_ gestureRecognizer: UIPanGestureRecognizer)**
 
 Safety method to set corner radius of the slider:
