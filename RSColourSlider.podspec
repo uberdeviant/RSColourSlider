@@ -11,11 +11,6 @@ Pod::Spec.new do |s|
   s.version          = '1.0.0'
   s.summary          = 'The Colour Slider for iOS and iPadOS projects.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
 TODO: This is a User Interface Slider that is able to help iOS users to choose their own colours. Easy to use, flexible settings.
@@ -34,11 +29,4 @@ TODO: This is a User Interface Slider that is able to help iOS users to choose t
   s.swift_version = '5.0'
   s.platform = :ios, "12.0"
   
-  # s.resource_bundles = {
-  #   'RSColourSlider' => ['RSColourSlider/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
