@@ -217,6 +217,17 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
 
     }
     
+    //INIT
+    
+    public override init(frame: CGRect){
+        super.init(frame: frame)
+        awakeAllParts()
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     //DELEGATE
     
     private func activateAllDelegateMethods(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat){

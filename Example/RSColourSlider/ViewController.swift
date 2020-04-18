@@ -21,7 +21,6 @@ class ViewController: UIViewController, RSColourSliderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         colourView.layer.cornerRadius = colourView.bounds.height / 2
         colourView.clipsToBounds = true
         
