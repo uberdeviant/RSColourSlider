@@ -254,6 +254,7 @@ public var backgroundColouredView: UIView!
 Values     | Min | Max |
 Hue        |  0  |  1  |
 Saturation |  0  |  1  |
+Brightness |  0  |  1  |
 Alpha      |  0  |  1  |
 
 ## License
