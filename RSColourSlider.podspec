@@ -32,9 +32,7 @@ TODO: This is a User Interface Slider that is able to help iOS users to choose t
 
   s.source_files = 'Source/**/*'
   s.swift_version = '5.0'
-  s.platform = {
-      "ios": "12.0"
-  }
+  s.platform = :ios, "12.0"
   
   # s.resource_bundles = {
   #   'RSColourSlider' => ['RSColourSlider/Assets/*.png']
