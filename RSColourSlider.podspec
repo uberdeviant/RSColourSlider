@@ -31,7 +31,7 @@ TODO: This is a User Interface Slider that is able to help iOS users to choose t
   s.ios.deployment_target = '12.0'
 
   s.source_files = 'Source/**/*'
-  s.swift_vaersion = '5.0'
+  s.swift_version = '5.0'
   s.platform = {
       "ios": "12.0"
   }
