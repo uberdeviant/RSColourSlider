@@ -46,7 +46,225 @@ Check [Getting Started](https://guides.cocoapods.org/using/getting-started.html)
 
 ## Documentation:
 
+First of all import the framework:
 
+```swift
+import RSColourSlider
+```
+
+# Object Creation:
+
+You may create an instace of **RSColourSlider** traditionally, with code:
+
+```swift
+//example
+let colourSlider = RSColourSlider(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50))
+self.view.addSubview(view)
+```
+
+You may also drag a **UIView** into your **ViewController** in the storyboard, set the chosen view's **Class** and **Module** to RSColourSlider in **identity inspector** and then create its outlet:
+
+```swift
+@IBOutlet weak var colourSlider: RSColourSlider!
+```
+
+You have to set a slider's **delegate** to your instance of ViewController, for accesing its delegate methods when the slider value changes:
+
+```swift
+//for example in viewDidLoad()
+override func viewDidLoad() {
+    super.viewDidLoad()
+    colourSlider.delegate = self
+}
+```
+
+# Delegate:
+
+**colourGotten(_:)**
+
+To get a UIColor when the slider value did change:
+
+```swift
+func colourGotten(colour: UIColor) {
+    self.view.backgroundColour = colour
+}
+```
+
+**colourValueChanged(_:) - RGBA**
+
+To get RGBA values from the slider value:
+
+```swift
+func colourValuesChanged(to red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+    print(red, green, blue, alpha) //For example
+}
+```
+
+**colourValueChanged(_:) - HSBA**
+
+To get HSBA values from the slider value:
+
+```swift
+func colourValuesChanged(to hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+    print(hue, saturation, brightness, alpha) //For example
+}
+```
+
+# Helpful Methods:
+
+**getCurrentRGBAValues()**
+
+Returns a tuple of current RGBA values, call it if you changed brightness, alpha or saturation by another **UISlider** and you want to set the current, chosen colour to some UI element:
+
+```swift
+let rgbaValues = getCurrentRGBAValues()
+print(rgbaValues.red, rgbaValues.green, rgbaValues.blue, rgbaValues.alpha)
+```
+
+**getCurrentHSBAValues()**
+
+Returns a tuple of current HSBA values, call it if you changed brightness, alpha or saturation by another **UISlider** and you want to set the current, chosen colour to some UI element:
+
+```swift
+let hsbaValues = getCurrentHSBAValues()
+print(hsbaValues.hue, hsbaValues.saturation, hsbaValues.brightness, hsbaValues.alpha)
+```
+
+**setSliderValueBy(colour: UIColor)**
+
+Moves thumb position to chosen value and updates the slider by passing colour as the argument:
+
+```swift
+//for example in viewDidLoad()
+override func viewDidLoad() {
+    super.viewDidLoad()
+    colourSlider.setSliderValueBy(colour: UIColor.blue)
+}
+```
+
+**setSliderValueByColourValues(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)**
+
+Moves thumb position to chosen value and updates the slider by passing HSBA values as arguments:
+
+```swift
+//for example in viewDidLoad()
+override func viewDidLoad() {
+    super.viewDidLoad()
+    colourSlider.setSliderValueByColourValues(hue: 0.5, saturation: 1, brightness: 1, alpha: 1)
+}
+```
+
+**setSliderValueByColourValues(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)**
+
+Moves thumb position to chosen value and updates the slider by passing HSBA values as arguments:
+
+```swift
+//for example in viewDidLoad()
+override func viewDidLoad() {
+    super.viewDidLoad()
+    colourSlider.setSliderValueByColourValues(hue: 0.5, saturation: 1, brightness: 1, alpha: 1)
+}
+```
+**setCornerRadius(_ gestureRecognizer: UIPanGestureRecognizer)**
+
+Safety method to set corner radius of the slider:
+
+```swift
+//for example in viewDidLoad()
+override func viewDidLoad() {
+    super.viewDidLoad()
+    colourSlider.setCornerRadius(by: colourSlider.bounds.height / 2)
+}
+```
+
+**handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer)**
+
+Handles thumb's moving, can be overriden:
+
+```swift
+@objc open func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) 
+```
+
+# Properties
+
+**delegate: RSColourSliderDelegate**
+
+Triggers delegate's method
+
+```swift
+public var delegate: RSColourSliderDelegate?
+```
+
+**brightness: CGFloat**
+
+Changing this value affects brightness of the slider:
+
+```swift
+open var brightness: CGFloat = 1.0 //defualt
+```
+
+**saturation: CGFloat**
+
+Changing this value affects saturation of the slider:
+
+```swift
+open var saturation: CGFloat = 1.0 //default
+```
+
+**alphaColourValue: CGFloat**
+
+Changing this value affects transparency of the slider:
+
+```swift
+open var alphaColourValue: CGFloat = 1.0 //default
+```
+
+**colourChosen: UIColor**
+
+The current colour that slider shows: 
+
+```swift
+public var colourChosen: UIColor = UIColor(hue: 0, saturation: 1, brightness: 1, alpha: 1)
+```
+
+**thumbView: UIView!**
+
+The Thumb View. Can be modified: 
+
+```swift
+public var thumbView: UIView!
+```
+
+ThumbView has the following values:
+
+```swift
+//shadow
+thumbView.layer.shadowColor = UIColor.black.cgColor
+thumbView.layer.shadowOffset = .zero
+thumbView.layer.shadowOpacity = 0.3
+thumbView.layer.shadowRadius = 4.0
+//borderWidth
+thumbView.layer.borderWidth = 4
+thumbView.layer.borderColor = UIColor.white.cgColor
+thumbView.addGestureRecognizer(panGesture)
+```
+
+**backgroundColouredView: UIView!**
+
+View that contains all layers and subview (not thumbView). Width of this view is a deviders when the slider calculates hue value:
+
+```swift
+public var backgroundColouredView: UIView!
+```
+
+# RSColourView inherits from UIView and it can use methods of UIView class!
+
+# Logic
+
+Values     | Min | Max |
+Hue        |  0  |  1  |
+Saturation |  0  |  1  |
+Alpha      |  0  |  1  |
 
 ## License
 
