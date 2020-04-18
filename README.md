@@ -14,15 +14,17 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Installation
 
 RSColourSlider is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+it, simply add the following lines to your Podfile:
 
 ```ruby
+platform :ios, '12.0'
+
 pod 'RSColourSlider'
 ```
 
 ## Author
 
-uberdeviant, salimov29@gmail.com
+Ramil Uberdeviant Salimov, salimov29@gmail.com
 
 ## License
 
