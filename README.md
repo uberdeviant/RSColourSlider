@@ -90,7 +90,7 @@ func colourGotten(colour: UIColor) {
 }
 ```
 
-**colourValueChanged(_:) - RGBA**
+**colourValueChanged(_:) //RGBA**
 
 To get RGBA values from the slider value:
 
@@ -100,7 +100,7 @@ func colourValuesChanged(to red: CGFloat, green: CGFloat, blue: CGFloat, alpha: 
 }
 ```
 
-**colourValueChanged(_:) - HSBA**
+**colourValueChanged(_:) //HSBA**
 
 To get HSBA values from the slider value:
 
