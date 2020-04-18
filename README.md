@@ -1,3 +1,5 @@
+![RSColourSlider Image](https://repository-images.githubusercontent.com/256673876/f5e97d80-8178-11ea-8ef9-3008f1eff834)
+
 # RSColourSlider
 
 [![CI Status](https://img.shields.io/travis/uberdeviant/RSColourSlider.svg?style=flat)](https://travis-ci.org/uberdeviant/RSColourSlider)
