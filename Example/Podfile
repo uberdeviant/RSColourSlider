@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RSColourSlider_Example' do
+  pod 'RSColourSlider', :path => '../'
+
+  target 'RSColourSlider_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
