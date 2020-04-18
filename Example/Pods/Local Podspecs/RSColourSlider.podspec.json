@@ -1,0 +1,22 @@
+{
+  "name": "RSColourSlider",
+  "version": "0.1.0",
+  "summary": "A short description of RSColourSlider.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/uberdeviant/RSColourSlider",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "uberdeviant": "salimov29@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/uberdeviant/RSColourSlider.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "RSColourSlider/Classes/**/*"
+}
