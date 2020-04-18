@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'RSColourSlider'
   s.version          = '1.0.0'
-  s.summary          = 'A short description of RSColourSlider.'
+  s.summary          = 'The Colour Slider for iOS and iPadOS projects.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+TODO: This is a User Interface Slider that is able to help iOS users to choose their own colours. Easy to use, flexible settings.
                        DESC
 
   s.homepage         = 'https://github.com/uberdeviant/RSColourSlider'
@@ -31,6 +31,10 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '12.0'
 
   s.source_files = 'Source/**/*'
+  s.swift_vaersion = '5.0'
+  s.platform = {
+      "ios": "12.0"
+  }
   
   # s.resource_bundles = {
   #   'RSColourSlider' => ['RSColourSlider/Assets/*.png']

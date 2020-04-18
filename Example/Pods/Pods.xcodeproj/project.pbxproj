@@ -14,7 +14,8 @@
 		A7AF3CCCBB41BE7BB7CCCCE581BA2FA0 /* Pods-RSColourSlider_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 426A86B9234E8B63D50EDC45DDFA6F90 /* Pods-RSColourSlider_Tests-dummy.m */; };
 		AE554A8972BA945D193B7B2181BFF101 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		BF1387CA6FD1326125BA8CF6BF02D6FD /* Pods-RSColourSlider_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C6A6FBDD09D23D620C9D49F68E1B674C /* Pods-RSColourSlider_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F2F5AD0AB6A947BCE87DC7527E089586 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D8FF7BF7E93BDB7FB4E3DCCD31AD72 /* ReplaceMe.swift */; };
+		D2B16B06244ABE3A00B19D78 /* RSColourSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = D2B16B04244ABE3A00B19D78 /* RSColourSlider.h */; };
+		D2B16B07244ABE3A00B19D78 /* RSColourSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B16B05244ABE3A00B19D78 /* RSColourSlider.swift */; };
 		F34E44A69D335250A79A134179D11CAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		F47DD7E005E152C2B1969F375827438D /* Pods-RSColourSlider_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E98B128D1DE44B7C1BFB806A9CC920FA /* Pods-RSColourSlider_Example-dummy.m */; };
 /* End PBXBuildFile section */
@@ -45,29 +46,30 @@
 		426A86B9234E8B63D50EDC45DDFA6F90 /* Pods-RSColourSlider_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RSColourSlider_Tests-dummy.m"; sourceTree = "<group>"; };
 		5C2DCB2220F0F295998E7244DFD13B21 /* Pods-RSColourSlider_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RSColourSlider_Example-frameworks.sh"; sourceTree = "<group>"; };
 		60F1F6ECACADA963732D716128014881 /* Pods-RSColourSlider_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RSColourSlider_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		6C3C065A9A3FEE9C0C33095DCA4B4076 /* Pods_RSColourSlider_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RSColourSlider_Tests.framework; path = "Pods-RSColourSlider_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7862910BA8DE2BD8AE2ABC3A1E7FE98B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		6C3C065A9A3FEE9C0C33095DCA4B4076 /* Pods_RSColourSlider_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSColourSlider_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7862910BA8DE2BD8AE2ABC3A1E7FE98B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		79E38BB0590FE9CEA957CEDCB0E19873 /* Pods-RSColourSlider_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSColourSlider_Example.release.xcconfig"; sourceTree = "<group>"; };
 		84E2AD71C52DE34F03A778BA5D2DD4EE /* Pods-RSColourSlider_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSColourSlider_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		8D28039685D8EF297879FFF2C756CC7B /* RSColourSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RSColourSlider.framework; path = RSColourSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DE529D822A1C6AE9202EC20F2F6E3AE /* RSColourSlider.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RSColourSlider.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8D28039685D8EF297879FFF2C756CC7B /* RSColourSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSColourSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DE529D822A1C6AE9202EC20F2F6E3AE /* RSColourSlider.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = RSColourSlider.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95465EE7E476F776404D8F7C8C28555A /* RSColourSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RSColourSlider.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E2BCB5E275FE765B7AD1FE01B9EDD9B /* RSColourSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSColourSlider-umbrella.h"; sourceTree = "<group>"; };
 		A3D690BC7C3F8AA8C5BF6E4689D2DDB1 /* RSColourSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RSColourSlider-dummy.m"; sourceTree = "<group>"; };
-		A9D8FF7BF7E93BDB7FB4E3DCCD31AD72 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = RSColourSlider/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		AAD213F61A00359FB8E0ED6B929C5AB6 /* Pods-RSColourSlider_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSColourSlider_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB111660DFCFC18D31B994B8436FD38A /* RSColourSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSColourSlider-prefix.pch"; sourceTree = "<group>"; };
 		B10A018A2F7CE8A50AA921D3963DC96F /* Pods-RSColourSlider_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RSColourSlider_Example.modulemap"; sourceTree = "<group>"; };
 		C6A6FBDD09D23D620C9D49F68E1B674C /* Pods-RSColourSlider_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RSColourSlider_Tests-umbrella.h"; sourceTree = "<group>"; };
 		CA9ABC8DF0E30BCAD8041CF58CC8EAD9 /* RSColourSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RSColourSlider-Info.plist"; sourceTree = "<group>"; };
+		D2B16B04244ABE3A00B19D78 /* RSColourSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSColourSlider.h; sourceTree = "<group>"; };
+		D2B16B05244ABE3A00B19D78 /* RSColourSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSColourSlider.swift; sourceTree = "<group>"; };
 		D2B92364D76618FC466503EF527B3D4A /* Pods-RSColourSlider_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSColourSlider_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D30387C1328F6A30B05AC70B60273D1B /* Pods-RSColourSlider_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RSColourSlider_Example-umbrella.h"; sourceTree = "<group>"; };
-		D9CA5949C3E2E8EF1C718ADCCE8FF281 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D9CA5949C3E2E8EF1C718ADCCE8FF281 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E98B128D1DE44B7C1BFB806A9CC920FA /* Pods-RSColourSlider_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RSColourSlider_Example-dummy.m"; sourceTree = "<group>"; };
 		EBB71C4E187B272CB8EB7977DEE99F31 /* Pods-RSColourSlider_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RSColourSlider_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F1789F46D2E1FB403480A29FEC814A09 /* Pods-RSColourSlider_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RSColourSlider_Example-Info.plist"; sourceTree = "<group>"; };
-		F5932CE4E37F141139BB61200ADEC46B /* Pods_RSColourSlider_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RSColourSlider_Example.framework; path = "Pods-RSColourSlider_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5932CE4E37F141139BB61200ADEC46B /* Pods_RSColourSlider_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSColourSlider_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7CC7E8EE11369E0A012E28E9B2ACFA8 /* Pods-RSColourSlider_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RSColourSlider_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,7 +172,7 @@
 		6F186772086EA55B1EBF8B1B82C64FF2 /* RSColourSlider */ = {
 			isa = PBXGroup;
 			children = (
-				A9D8FF7BF7E93BDB7FB4E3DCCD31AD72 /* ReplaceMe.swift */,
+				D2B16B03244ABDEE00B19D78 /* Source */,
 				5C61F448B52698837EEE49C5900FA610 /* Pod */,
 				1683FD52E3C08C4AE56D4F6D774E6E72 /* Support Files */,
 			);
@@ -221,6 +223,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D2B16B03244ABDEE00B19D78 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D2B16B04244ABE3A00B19D78 /* RSColourSlider.h */,
+				D2B16B05244ABE3A00B19D78 /* RSColourSlider.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -228,6 +239,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B16B06244ABE3A00B19D78 /* RSColourSlider.h in Headers */,
 				A2196E7574767AD2356EB973717BD277 /* RSColourSlider-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +327,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					844AAF10181321EF27AB5B2540EC7205 = {
+						LastSwiftMigration = 1130;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -373,8 +390,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2F5AD0AB6A947BCE87DC7527E089586 /* ReplaceMe.swift in Sources */,
 				52726943FF924BB2C54615B96870DD5D /* RSColourSlider-dummy.m in Sources */,
+				D2B16B07244ABE3A00B19D78 /* RSColourSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +437,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-RSColourSlider_Example/Pods-RSColourSlider_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RSColourSlider_Example/Pods-RSColourSlider_Example.modulemap";
@@ -442,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 95465EE7E476F776404D8F7C8C28555A /* RSColourSlider.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -454,15 +472,16 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RSColourSlider/RSColourSlider-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RSColourSlider/RSColourSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				MODULEMAP_FILE = "Target Support Files/RSColourSlider/RSColourSlider.modulemap";
 				PRODUCT_MODULE_NAME = RSColourSlider;
 				PRODUCT_NAME = RSColourSlider;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -486,7 +505,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-RSColourSlider_Tests/Pods-RSColourSlider_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RSColourSlider_Tests/Pods-RSColourSlider_Tests.modulemap";
@@ -507,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 95465EE7E476F776404D8F7C8C28555A /* RSColourSlider.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -519,15 +539,17 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RSColourSlider/RSColourSlider-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RSColourSlider/RSColourSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				MODULEMAP_FILE = "Target Support Files/RSColourSlider/RSColourSlider.modulemap";
 				PRODUCT_MODULE_NAME = RSColourSlider;
 				PRODUCT_NAME = RSColourSlider;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -550,7 +572,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-RSColourSlider_Tests/Pods-RSColourSlider_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RSColourSlider_Tests/Pods-RSColourSlider_Tests.modulemap";
@@ -616,13 +638,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -644,7 +665,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-RSColourSlider_Example/Pods-RSColourSlider_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RSColourSlider_Example/Pods-RSColourSlider_Example.modulemap";
@@ -712,7 +733,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
