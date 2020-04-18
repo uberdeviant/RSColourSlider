@@ -36,7 +36,7 @@ use_frameworks!
 pod 'RSColourSlider'
 ```
 
-then run the "install" command in the terminal:
+Then run the "install" command in the terminal:
 
 ```
 pod install
