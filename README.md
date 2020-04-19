@@ -216,7 +216,7 @@ open var alphaColourValue: CGFloat = 1.0 //default
 The current colour that slider shows: 
 
 ```swift
-public var colourChosen: UIColor = UIColor(hue: 0, saturation: 1, brightness: 1, alpha: 1)
+public var colourChosen: UIColor = UIColor(hue: 0, saturation: 1, brightness: 1, alpha: 1) //default
 ```
 
 **thumbView: UIView!**
