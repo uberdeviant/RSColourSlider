@@ -22,20 +22,6 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-# About:
-
-**RSColourSlider** is able to give an opportunity for your app to use a colour picking functionality. The colour picker is implemented as a **regular slider**, which will be familiar to every iOS user. It's easy to install and setup because RSColourSlider inherits from **UIView** class. You can inherit your own class from RSColourSlider and change elements of the slider from your custom subclass, also you can setup it during a runtime in an instance of any UIViewController subclass. This interface element was created as a simplified iOS analogue of NSColorPicker for macOS.
-
-## Features:
-
-* Easy to use
-* All rainbow colours can be applied
-* Flexible customisation
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
 
 iOS 12.0+, Swift 5.0+
