@@ -8,7 +8,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/RSColourSlider.svg?style=flat)](https://cocoapods.org/pods/RSColourSlider)
 
 
-# About
+# About: 
 
 **RSColourSlider** is able to give an opportunity for your app to use a colour picking functionality. The colour picker is implemented as a **regular slider**, which will be familiar to every iOS user. It's easy to install and setup because RSColourSlider inherits from **UIView** class. You can inherit your own class from RSColourSlider and change elements of the slider from your custom subclass, also you can setup it during a runtime in an instance of any UIViewController subclass. This interface element was created as a simplified iOS analogue of NSColorPicker for macOS.
 
