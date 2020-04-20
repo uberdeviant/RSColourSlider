@@ -2,7 +2,6 @@
 
 # RSColourSlider
 
-[![CI Status](https://img.shields.io/travis/uberdeviant/RSColourSlider.svg?style=flat)](https://travis-ci.org/uberdeviant/RSColourSlider)
 [![Version](https://img.shields.io/cocoapods/v/RSColourSlider.svg?style=flat)](https://cocoapods.org/pods/RSColourSlider)
 [![License](https://img.shields.io/cocoapods/l/RSColourSlider.svg?style=flat)](https://cocoapods.org/pods/RSColourSlider)
 [![Platform](https://img.shields.io/cocoapods/p/RSColourSlider.svg?style=flat)](https://cocoapods.org/pods/RSColourSlider)
