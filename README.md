@@ -15,6 +15,7 @@
 
 * Easy to use
 * All rainbow colours can be applied
+* Supports autolayouts and Storyboard
 * Flexible customisation
 
 ## Example
