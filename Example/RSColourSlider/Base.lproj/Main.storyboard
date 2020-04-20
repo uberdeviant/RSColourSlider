@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4L-cM-Coa" customClass="RSColourSlider" customModule="RSColourSlider">
-                                        <rect key="frame" x="40" y="388" width="334" height="50"/>
+                                        <rect key="frame" x="15" y="388" width="384" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="2S6-OQ-976"/>
@@ -124,17 +124,17 @@
                                 <constraints>
                                     <constraint firstItem="Lnt-ra-bWs" firstAttribute="centerX" secondItem="W4L-cM-Coa" secondAttribute="centerX" id="0C6-th-2Ob"/>
                                     <constraint firstItem="QDo-8W-LVA" firstAttribute="centerX" secondItem="W4L-cM-Coa" secondAttribute="centerX" id="29l-gY-zHE"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZKt-Qu-1G2" secondAttribute="trailing" constant="40" id="3ye-ff-HrQ"/>
                                     <constraint firstItem="6KB-Ty-oQv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5gT-rn-hXd" secondAttribute="leading" constant="40" id="4Bg-pc-edp"/>
                                     <constraint firstItem="6KB-Ty-oQv" firstAttribute="top" secondItem="bhc-Xp-eUq" secondAttribute="bottom" constant="20" id="4Gb-Ud-sfe"/>
                                     <constraint firstItem="QDo-8W-LVA" firstAttribute="top" secondItem="On1-zA-Dzg" secondAttribute="bottom" constant="20" id="8AS-rY-4xW"/>
                                     <constraint firstItem="QDo-8W-LVA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5gT-rn-hXd" secondAttribute="leading" constant="40" id="CbJ-Ay-yJV"/>
                                     <constraint firstItem="6KB-Ty-oQv" firstAttribute="centerX" secondItem="W4L-cM-Coa" secondAttribute="centerX" id="D4u-T6-EPw"/>
                                     <constraint firstItem="bhc-Xp-eUq" firstAttribute="centerX" secondItem="W4L-cM-Coa" secondAttribute="centerX" id="Nw9-ww-gNb"/>
-                                    <constraint firstItem="ZKt-Qu-1G2" firstAttribute="width" secondItem="W4L-cM-Coa" secondAttribute="width" id="Qbr-db-DMn"/>
                                     <constraint firstItem="ZKt-Qu-1G2" firstAttribute="centerX" secondItem="W4L-cM-Coa" secondAttribute="centerX" id="Qvt-0a-BgE"/>
                                     <constraint firstAttribute="bottom" secondItem="ZKt-Qu-1G2" secondAttribute="bottom" constant="20" id="Sig-ai-ofz"/>
                                     <constraint firstItem="bhc-Xp-eUq" firstAttribute="top" secondItem="QDo-8W-LVA" secondAttribute="bottom" constant="20" id="TGg-wJ-wKx"/>
-                                    <constraint firstItem="W4L-cM-Coa" firstAttribute="leading" secondItem="5gT-rn-hXd" secondAttribute="leading" constant="40" id="W2c-jQ-6Yy"/>
+                                    <constraint firstItem="W4L-cM-Coa" firstAttribute="leading" secondItem="5gT-rn-hXd" secondAttribute="leading" constant="15" id="W2c-jQ-6Yy"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QDo-8W-LVA" secondAttribute="trailing" constant="40" id="Wy3-P9-Ne3"/>
                                     <constraint firstItem="ZKt-Qu-1G2" firstAttribute="top" secondItem="W4L-cM-Coa" secondAttribute="bottom" constant="40" id="Z8X-0C-PTj"/>
                                     <constraint firstItem="On1-zA-Dzg" firstAttribute="centerX" secondItem="QDo-8W-LVA" secondAttribute="centerX" id="cLd-Kf-iE6"/>
@@ -142,7 +142,8 @@
                                     <constraint firstItem="W4L-cM-Coa" firstAttribute="top" secondItem="6KB-Ty-oQv" secondAttribute="bottom" constant="30" id="i1U-t6-73S"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6KB-Ty-oQv" secondAttribute="trailing" constant="40" id="nbD-Ht-R6U"/>
                                     <constraint firstItem="On1-zA-Dzg" firstAttribute="top" secondItem="Lnt-ra-bWs" secondAttribute="bottom" constant="20" id="pv1-aG-ZQF"/>
-                                    <constraint firstAttribute="trailing" secondItem="W4L-cM-Coa" secondAttribute="trailing" constant="40" id="qvR-uZ-ReH"/>
+                                    <constraint firstAttribute="trailing" secondItem="W4L-cM-Coa" secondAttribute="trailing" constant="15" id="qvR-uZ-ReH"/>
+                                    <constraint firstItem="ZKt-Qu-1G2" firstAttribute="leading" secondItem="5gT-rn-hXd" secondAttribute="leading" constant="40" id="uca-kd-IlP"/>
                                 </constraints>
                             </scrollView>
                         </subviews>

@@ -30,21 +30,21 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     open var brightness: CGFloat = 1.0{
         willSet{
             self.brightnessView.alpha = 1 - newValue
-            self.colourChosen = UIColor(hue: thumbView.layer.position.x / self.backgroundColouredView.bounds.width, saturation: saturation, brightness: newValue, alpha: alpha)
+            self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: saturation, brightness: newValue, alpha: alpha)
             self.thumbView.backgroundColor = colourChosen
         }
     }
     open var saturation: CGFloat = 1.0{
         willSet{
             self.saturationView.alpha = 1 - newValue
-            self.colourChosen = UIColor(hue: thumbView.layer.position.x / self.backgroundColouredView.bounds.width, saturation: newValue, brightness: brightness, alpha: alpha)
+            self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: newValue, brightness: brightness, alpha: alpha)
             self.thumbView.backgroundColor = colourChosen
         }
     }
     open var alphaColourValue: CGFloat = 1.0{
         willSet{
             self.backgroundColouredView.alpha = newValue
-            self.colourChosen = UIColor(hue: thumbView.layer.position.x / self.backgroundColouredView.bounds.width, saturation: saturation, brightness: brightness, alpha: newValue)
+            self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: saturation, brightness: brightness, alpha: newValue)
             self.thumbView.backgroundColor = colourChosen
         }
     }
@@ -56,23 +56,26 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     
     override open func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColouredView.frame = self.bounds
-        self.brightnessView.frame = self.bounds
-        self.saturationView.frame = self.bounds
-        self.gradientLayer.frame = self.bounds
-        self.setSliderValueBy(colour: colourChosen)
+        let widthAndHeightOfThumb = getHeightAndWidthOfThumb()
+        self.backgroundColouredView.frame = CGRect(x: widthAndHeightOfThumb / 2, y: self.bounds.minY, width: self.bounds.width - widthAndHeightOfThumb, height: self.bounds.height)
+        self.brightnessView.frame = backgroundColouredView.bounds
+        self.saturationView.frame = backgroundColouredView.bounds
+        self.gradientLayer.frame = backgroundColouredView.bounds
+        var hsba: (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat) = (0, 1, 1, 1)
+        colourChosen.getHue(&hsba.h, saturation: &hsba.s, brightness: &hsba.b, alpha: &hsba.a)
+        self.thumbView.center.x = backgroundColouredView.bounds.width * ((hsba.h + self.thumbView.bounds.width / 2 / backgroundColouredView.bounds.width) * 100) / 100
     }
     //BUILDING
     
     private func awakeAllParts(){
         self.backgroundColor = .clear
         self.isUserInteractionEnabled = true
-        self.clipsToBounds = false
         manageColouredBackgroundView()
         manageGradient()
         manageSaturationView()
         manageBrightnessView()
         addThumbView()
+        setSliderValueBy(colour: colourChosen)
     }
     
     private func manageGradient(){
@@ -96,28 +99,29 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     
     
     private func manageColouredBackgroundView(){
-        backgroundColouredView = UIView(frame: self.bounds)
+        let widthAndHeightOfThumb: CGFloat = getHeightAndWidthOfThumb()
+        backgroundColouredView = UIView(frame: CGRect(x: widthAndHeightOfThumb / 2, y: self.bounds.minY, width: self.bounds.width - widthAndHeightOfThumb, height: self.bounds.height))
         backgroundColouredView.backgroundColor = .clear
         self.addSubview(backgroundColouredView)
     }
     
     private func manageSaturationView(){
-        saturationView = UIView(frame: self.bounds)
+        saturationView = UIView(frame: backgroundColouredView.bounds)
         saturationView.backgroundColor = .white
         saturationView.alpha = 0
         backgroundColouredView.addSubview(saturationView)
     }
     
     private func addThumbView(){
-        let widthAndHeight: CGFloat = self.bounds.height < 50 ? self.bounds.height - 10 : 40
+        let widthAndHeightOfThumb: CGFloat = getHeightAndWidthOfThumb()
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         panGesture.maximumNumberOfTouches = 1
         panGesture.delegate = self
-        thumbView = UIView(frame: CGRect(x: 0, y: 0, width: widthAndHeight, height: widthAndHeight))
+        thumbView = UIView(frame: CGRect(x: 0, y: 0, width: widthAndHeightOfThumb, height: widthAndHeightOfThumb))
         thumbView.isUserInteractionEnabled = true
-        thumbView.layer.cornerRadius = widthAndHeight / 2
-        thumbView.backgroundColor = UIColor(hue: thumbView.bounds.midX / self.bounds.width, saturation: saturation, brightness: brightness, alpha: alpha)
-        thumbView.layer.position = CGPoint(x: 0, y: self.bounds.midY)
+        thumbView.layer.cornerRadius = widthAndHeightOfThumb / 2
+        thumbView.backgroundColor = UIColor(hue: thumbView.bounds.midX / backgroundColouredView.bounds.width, saturation: saturation, brightness: brightness, alpha: alpha)
+        thumbView.layer.position = CGPoint(x: widthAndHeightOfThumb / 2, y: backgroundColouredView.bounds.midY)
         //shadow
         thumbView.layer.shadowColor = UIColor.black.cgColor
         thumbView.layer.shadowOffset = .zero
@@ -132,7 +136,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     }
     
     private func manageBrightnessView(){
-        brightnessView = UIView(frame: self.bounds)
+        brightnessView = UIView(frame: backgroundColouredView.bounds)
         brightnessView.backgroundColor = .black
         brightnessView.alpha = 0
         backgroundColouredView.addSubview(brightnessView)
@@ -141,7 +145,8 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     public func setSliderValueBy(colour: UIColor){
         var hsba: (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat) = (0, 1, 1, 1)
         colour.getHue(&hsba.h, saturation: &hsba.s, brightness: &hsba.b, alpha: &hsba.a)
-        thumbView.layer.position.x = self.backgroundColouredView.bounds.width * (hsba.h * 100) / 100
+        
+        thumbView.layer.position.x = backgroundColouredView.bounds.width * ((hsba.h + self.thumbView.bounds.width / 2 / backgroundColouredView.bounds.width) * 100) / 100
         self.alpha = hsba.a
         self.saturation = hsba.s
         self.brightness = hsba.b
@@ -151,7 +156,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     }
     
     public func setSliderValueByColourValues(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat){
-        thumbView.layer.position.x = self.backgroundColouredView.bounds.width * (hue * 100) / 100
+        thumbView.layer.position.x = self.backgroundColouredView.bounds.width * ((hue + self.thumbView.bounds.width / 2 / backgroundColouredView.bounds.width) * 100) / 100
         self.alpha = alpha
         self.saturation = saturation
         self.brightness = brightness
@@ -165,6 +170,10 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         backgroundColouredView.clipsToBounds = true
         backgroundColouredView.layer.cornerRadius = value
         
+    }
+    
+    private func getHeightAndWidthOfThumb() -> CGFloat{
+        return self.bounds.height < 50 ? self.bounds.height - 10 : 40
     }
     
     //GETTING CURRENT VALUES
@@ -194,27 +203,35 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     // GESTURE
     @objc open func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         
-        let translation = gestureRecognizer.translation(in: thumbView)
+        let translation = gestureRecognizer.translation(in: backgroundColouredView)
         if let view = gestureRecognizer.view{
-            if view.frame.midX < 0{
-                view.layer.position.x = 0
-            }else if view.frame.midX > self.bounds.width{
-                view.layer.position.x = self.bounds.width
-            }else{
-                let translationX = view.center.x + translation.x
-                view.center = CGPoint(x:translationX,
-                                      y:view.center.y)
-                colourChosen = UIColor(hue: translationX / self.backgroundColouredView.bounds.width, saturation: saturation, brightness: brightness, alpha: alpha)
-                thumbView.backgroundColor = colourChosen
-                
-                activateAllDelegateMethods(hue: translationX / self.backgroundColouredView.bounds.width, saturation: saturation, brightness: brightness, alpha: alpha)
-                
+            if view.frame.midX < thumbView.bounds.width / 2{
+                view.layer.position.x = thumbView.bounds.width / 2
+            }else if view.frame.midX > backgroundColouredView.bounds.width + thumbView.bounds.width / 2{
+                view.layer.position.x = backgroundColouredView.bounds.width + thumbView.bounds.width / 2
+            }
+            let translationX = view.center.x + translation.x
+            view.center = CGPoint(x:translationX,
+                                  y:view.center.y)
+            var totalTranslation: CGFloat = getHueValueFrom(xValue: translationX)
+            if totalTranslation > 1{
+                totalTranslation = 1
+            }else if totalTranslation < 0{
+                totalTranslation = 0
             }
             
+            colourChosen = UIColor(hue: totalTranslation, saturation: saturation, brightness: brightness, alpha: alpha)
+            thumbView.backgroundColor = colourChosen
+            
+            activateAllDelegateMethods(hue: totalTranslation, saturation: saturation, brightness: brightness, alpha: alpha)
+            
         }
-        gestureRecognizer.setTranslation(CGPoint.zero, in: thumbView)
-        
-
+        gestureRecognizer.setTranslation(CGPoint.zero, in: backgroundColouredView)
+    
+    }
+    
+    private func getHueValueFrom(xValue: CGFloat) -> CGFloat{
+        return (xValue / backgroundColouredView.bounds.width) - (self.thumbView.bounds.width / 2 / backgroundColouredView.bounds.width)
     }
     
     //INIT

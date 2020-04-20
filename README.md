@@ -1,8 +1,7 @@
-![RSColourSlider Image](https://repository-images.githubusercontent.com/256673876/f3446200-8224-11ea-82f8-cc07a9d0ba46)
+![RSColourSlider Image](https://repository-images.githubusercontent.com/256673876/c59a0e80-8333-11ea-90b1-4a9910f694c5)
 
 # RSColourSlider
 
-[![CI Status](https://img.shields.io/travis/uberdeviant/RSColourSlider.svg?style=flat)](https://travis-ci.org/uberdeviant/RSColourSlider)
 [![Version](https://img.shields.io/cocoapods/v/RSColourSlider.svg?style=flat)](https://cocoapods.org/pods/RSColourSlider)
 [![License](https://img.shields.io/cocoapods/l/RSColourSlider.svg?style=flat)](https://cocoapods.org/pods/RSColourSlider)
 [![Platform](https://img.shields.io/cocoapods/p/RSColourSlider.svg?style=flat)](https://cocoapods.org/pods/RSColourSlider)
@@ -16,17 +15,14 @@
 
 * Easy to use
 * All rainbow colours can be applied
+* Supports autolayouts and Storyboards
 * Flexible customisation
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
+## Requirements:
 
 iOS 12.0+, Swift 5.0+
 
-## Installation
+## Installation:
 
 RSColourSlider is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following lines to your Podfile:
@@ -178,7 +174,7 @@ Handles thumb's moving, can be overriden:
 @objc open func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) 
 ```
 
-# Properties
+# Properties:
 
 **delegate: RSColourSliderDelegate**
 
@@ -252,7 +248,7 @@ public var backgroundColouredView: UIView!
 
 # RSColourView inherits from UIView and it can use methods of UIView class!
 
-# Logic
+# Logic:
 
 Value      | Min | Max |
 Hue        |  0  |  1  |
@@ -260,7 +256,7 @@ Saturation |  0  |  1  |
 Brightness |  0  |  1  |
 Alpha      |  0  |  1  |
 
-## License
+## License:
 
 RSColourSlider is available under the MIT license. See the LICENSE file for more info.
 

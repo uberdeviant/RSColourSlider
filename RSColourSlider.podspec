@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RSColourSlider'
-  s.version          = '1.0.5'
+  s.version          = '1.0.6'
   s.summary          = 'The Colour Slider for iOS and iPadOS projects.'
 
 
@@ -17,10 +17,9 @@ TODO: This is a User Interface Slider that is able to help iOS users to choose t
                        DESC
 
   s.homepage         = 'https://github.com/uberdeviant/RSColourSlider'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Ramil Uberdeviant Salimov' => 'salimov29@gmail.com' }
-  s.source           = { :git => 'https://github.com/uberdeviant/RSColourSlider.git', :tag => "1.0.5" }
+  s.source           = { :git => 'https://github.com/uberdeviant/RSColourSlider.git', :tag => "1.0.6" }
   s.social_media_url = 'https://twitter.com/mruberdeviant'
 
   s.ios.deployment_target = '12.0'
