@@ -1,4 +1,4 @@
-![RSColourSlider Image](https://repository-images.githubusercontent.com/256673876/f3446200-8224-11ea-82f8-cc07a9d0ba46)
+![RSColourSlider Image](https://repository-images.githubusercontent.com/256673876/27a54480-8331-11ea-9b9a-717b66b8abbb)
 
 # RSColourSlider
 
