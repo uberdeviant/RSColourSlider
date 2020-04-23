@@ -154,7 +154,7 @@ override func viewDidLoad() {
 ```
 **TODO: setSliderValueByColourValues(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)**
 
-**setCornerRadius(_ gestureRecognizer: UIPanGestureRecognizer)**
+**setCornerRadius(by value: CGFloat)**
 
 Safety method to set corner radius of the slider:
 
