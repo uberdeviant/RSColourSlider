@@ -36,24 +36,27 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     public weak var delegate: RSColourSliderDelegate?
     
     ///Opened properties just for fun :)
-    open var brightness: CGFloat = 1.0{
-        willSet{
-            self.brightnessView.alpha = 1 - newValue
-            
-            //Hue value depends on the thumb position in the superview
-            self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: saturation, brightness: newValue, alpha: alpha)
-            self.thumbView.backgroundColor = colourChosen
-        }
-    }
+    
     open var saturation: CGFloat = 1.0{
         willSet{
             self.saturationView.alpha = 1 - newValue
             
             //Hue value depends on the thumb position in the superview
-            self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: newValue, brightness: brightness, alpha: alpha)
+            self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: newValue, brightness: brightness, alpha: alphaColourValue)
             self.thumbView.backgroundColor = colourChosen
         }
     }
+    
+    open var brightness: CGFloat = 1.0{
+        willSet{
+            self.brightnessView.alpha = 1 - newValue
+            
+            //Hue value depends on the thumb position in the superview
+            self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: saturation, brightness: newValue, alpha: alphaColourValue)
+            self.thumbView.backgroundColor = colourChosen
+        }
+    }
+    
     open var alphaColourValue: CGFloat = 1.0{
         willSet{
             self.backgroundColouredView.alpha = newValue
@@ -64,7 +67,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    //MARK: - METHODS
+    //MARK: - BUILTIN METHODS
     
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -75,6 +78,19 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         super.layoutSubviews()
         resizeWhenLayoutSubviews()
     }
+    
+    //MARK: - INIT
+    
+    /// Just init
+    public override init(frame: CGRect){
+        super.init(frame: frame)
+        awakeAllParts()
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     //MARK: - BUILDING
     
     private func resizeWhenLayoutSubviews(){
@@ -178,7 +194,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         thumbView = UIView(frame: CGRect(x: 0, y: 0, width: thumbHeight, height: thumbHeight))
         thumbView.isUserInteractionEnabled = true
         thumbView.layer.cornerRadius = thumbHeight / 2
-        thumbView.backgroundColor = UIColor(hue: thumbView.bounds.midX / backgroundColouredView.bounds.width, saturation: saturation, brightness: brightness, alpha: alpha)
+        thumbView.backgroundColor = UIColor(hue: thumbView.bounds.midX / backgroundColouredView.bounds.width, saturation: saturation, brightness: brightness, alpha: alphaColourValue)
         
         //xPosition will be equal to backgroundColourView frame.minX see manageColouredBackgroundView()
         thumbView.layer.position = CGPoint(x: thumbHeight / 2, y: backgroundColouredView.bounds.midY)
@@ -205,7 +221,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         //Superview's size and colouredView's size are different thant's why it should be calculated differently see calculateThumbXPosition(by hue: CGFloat)
         thumbView.layer.position.x = calculateThumbXPosition(by: hsba.h)
         
-        self.alpha = hsba.a ///view will be changed in willSet of this value
+        self.alphaColourValue = hsba.a ///view will be changed in willSet of this value
         self.saturation = hsba.s ///view will be changed in willSet of this value
         self.brightness = hsba.b ///view will be changed in willSet of this value
         
@@ -218,7 +234,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         
         thumbView.layer.position.x = calculateThumbXPosition(by: hue)
         
-        self.alpha = alpha ///view will be changed in willSet of this value
+        self.alphaColourValue = alpha ///view will be changed in willSet of this value
         self.saturation = saturation ///view will be changed in willSet of this value
         self.brightness = brightness ///view will be changed in willSet of this value
         
@@ -251,7 +267,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     
     //MARK: - GETTING CURRENT VALUES
     
-    ///Return components of colourChosen in RGBA
+    ///Returns components of colourChosen in RGBA
     public func getCurrentRGBAValues() -> (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat){
         var r: CGFloat = 0
         var g: CGFloat = 0
@@ -268,7 +284,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         return (red: r, green: g, blue: b, alpha: a)
     }
     
-    ///Return components of colourChosen in HSBA
+    ///Returns components of colourChosen in HSBA
     public func getCurrentHSBAValues() -> (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat){
         var hsba: (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat) = (0, 1, 1, 1)
         colourChosen.getHue(&hsba.h, saturation: &hsba.s, brightness: &hsba.b, alpha: &hsba.a)
@@ -277,7 +293,6 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     
     //MARK: - GESTURE
     @objc open func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
-        
         let translation = gestureRecognizer.translation(in: backgroundColouredView)
         if let view = gestureRecognizer.view{
             if view.frame.midX < thumbView.bounds.width / 2{
@@ -298,49 +313,38 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
                 totalTranslation = 0
             }
             
-            colourChosen = UIColor(hue: totalTranslation, saturation: saturation, brightness: brightness, alpha: alpha)
+            colourChosen = UIColor(hue: totalTranslation, saturation: saturation, brightness: brightness, alpha: alphaColourValue)
             thumbView.backgroundColor = colourChosen
             
             //All delegate methods at once
-            activateAllDelegateMethods(hue: totalTranslation, saturation: saturation, brightness: brightness, alpha: alpha)
+            activateAllDelegateMethods(hue: totalTranslation, saturation: saturation, brightness: brightness, alpha: alphaColourValue)
             
         }
         gestureRecognizer.setTranslation(CGPoint.zero, in: backgroundColouredView)
     
     }
-    ///Getting the differnece of position of pulled thumbView inside superview but backgroundColouredView used as the anchor
+    ///Getting the differnece of position of pulled thumbView inside the superview but backgroundColouredView used as the anchor
     private func getHueValueFrom(xValue: CGFloat) -> CGFloat{
         return (xValue / backgroundColouredView.bounds.width) - (self.thumbView.bounds.width / 2 / backgroundColouredView.bounds.width)
     }
     
-    //MARK: - INIT
-    
-    /// Just init
-    public override init(frame: CGRect){
-        super.init(frame: frame)
-        awakeAllParts()
-    }
-    
-    required public init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
     
     //MARK: - DELEGATE
     
-    ///Triggers all delegate methods when a user pulls thumbView
+    ///Triggers all delegate methods
     private func activateAllDelegateMethods(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat){
         
+        //HSBA
         delegate?.colourValuesChanged?(to: hue, saturation: saturation, brightness: brightness, alpha: alpha)
         
-        let gottenUIColour = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+        //UIColour
+        delegate?.colourGotten?(colour: colourChosen)
         
-        delegate?.colourGotten?(colour: gottenUIColour)
-        if let components = gottenUIColour.cgColor.components{
+        //RGBA
+        if let components = colourChosen.cgColor.components{
             if components.count > 3{ //O(1)
                 delegate?.colourValuesChanged?(to: components[0], green: components[1], blue: components[2], alpha: components[3])
             }
         }
-        
-        
     }
 }
