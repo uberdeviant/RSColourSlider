@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RSColourSlider'
-  s.version          = '1.0.6'
+  s.version          = '1.0.7'
   s.summary          = 'The Colour Slider for iOS and iPadOS projects.'
 
 
