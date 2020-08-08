@@ -89,7 +89,7 @@ func colourGotten(colour: UIColor) {
 }
 ```
 
-**colourValueChanged(_:) //RGBA**
+**colourValuesChanged(_:) //RGBA**
 
 To get RGBA values from the value of the slider:
 
@@ -99,7 +99,7 @@ func colourValuesChanged(to red: CGFloat, green: CGFloat, blue: CGFloat, alpha: 
 }
 ```
 
-**colourValueChanged(_:) //HSBA**
+**colourValuesChanged(_:) //HSBA**
 
 To get HSBA values from the value of the slider:
 
@@ -266,6 +266,6 @@ RSColourSlider is available under the MIT license. See the LICENSE file for more
 
 * [Patreon](https://www.patreon.com/user?u=32639039)
 * [Twitter](https://twitter.com/mruberdeviant)
-* [Instagram](https://www.instagram.com/uberdeviant/)
-* [Other Products](https://mr-uberdeviant.blogspot.com/p/swiftlighter.html)
+* [Instagram](https://www.instagram.com/uberdeviant)
+* [Other Products](https://mr-uberdeviant.blogspot.com)
 
