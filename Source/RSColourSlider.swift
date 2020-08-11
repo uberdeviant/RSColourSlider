@@ -10,13 +10,13 @@ import UIKit
 
 @objc public protocol RSColourSliderDelegate {
     
-    ///Method that passes HSBA values as parameters when the thumb moves
+    ///Method passes HSBA values as parameters when the thumb moves
     @objc optional func colourValuesChanged(to hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
     
-    ///Method that passes RGBA values as parameters when the thumb moves
+    ///Method passes RGBA values as parameters when the thumb moves
     @objc optional func colourValuesChanged(to red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
     
-    ///Method that passes UIColour as a parameter when the thumb moves
+    ///Method passes UIColour as a parameter when the thumb moves
     @objc optional func colourGotten(colour: UIColor)
 }
 
@@ -35,13 +35,13 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     
     public weak var delegate: RSColourSliderDelegate?
     
-    ///Opened properties just for fun :)
+    ///Opened properties are just for fun :)
     
     open var saturation: CGFloat = 1.0{
         willSet{
             self.saturationView.alpha = 1 - newValue
             
-            //Hue value depends on the thumb position in the superview
+            //Tne saturation value can be changed outside the Colour Slider, but it can be used as a display
             self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: newValue, brightness: brightness, alpha: alphaColourValue)
             self.thumbView.backgroundColor = colourChosen
         }
@@ -51,7 +51,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         willSet{
             self.brightnessView.alpha = 1 - newValue
             
-            //Hue value depends on the thumb position in the superview
+            //The brighntess value can be changed outside the Colour Slider, but it can be used as a display
             self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: saturation, brightness: newValue, alpha: alphaColourValue)
             self.thumbView.backgroundColor = colourChosen
         }
@@ -61,13 +61,13 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         willSet{
             self.backgroundColouredView.alpha = newValue
             
-            //Hue value depends on the thumb position in the superview
+            //The alpha value can be changed outside the Colour Slider, but it can be used as a display
             self.colourChosen = UIColor(hue: getHueValueFrom(xValue: thumbView.layer.position.x), saturation: saturation, brightness: brightness, alpha: newValue)
             self.thumbView.backgroundColor = colourChosen
         }
     }
     
-    //MARK: - BUILTIN METHODS
+    //MARK: - BUILT-IN METHODS for the STORYBOARD
     
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -79,7 +79,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         resizeWhenLayoutSubviews()
     }
     
-    //MARK: - INIT
+    //MARK: - INIT for ADDING BY CODE
     
     /// Just init
     public override init(frame: CGRect){
@@ -102,7 +102,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         
         let thumbHeight = getThumbHeight()
         
-        //The anchor is backgroundColouredView that's because we need to use thumb's pan gesture outside the superview
+        //The anchor is backgroundColouredView, that's because we need to use thumb's pan gesture inside the superview of the Colour Slider
         self.backgroundColouredView.frame = CGRect(x: thumbHeight / 2, y: self.bounds.minY, width: self.bounds.width - thumbHeight, height: self.bounds.height)
         self.brightnessView.frame = backgroundColouredView.bounds
         self.saturationView.frame = backgroundColouredView.bounds
@@ -116,8 +116,8 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     
     private func awakeAllParts(){
         /*
-        The constructor method. It's calling in awakeFromNib() when a storyboard is used
-        or in init(), if the slider instance has been created programmatically
+        The constructor method. It's calling in awakeFromNib() when a storyboard is used, also it
+        might be called in init(), if the slider instance has been created programmatically
         */
         
         self.backgroundColor = .clear
@@ -136,8 +136,9 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     private func manageColouredBackgroundView(){
         let thumbHeight: CGFloat = getThumbHeight()
         /*
-         backgroundColouredView must be a little bit smaller than the superview for using
-         pan gesture on thumbView outside the coloured view. The difference shoud be equal to the width or height of the thumbView
+         backgroundColouredView must be a little bit smaller than the superview of the slider. We need it
+         for using the thumbView's pan gesture outside the coloured view.
+         The difference shoud be equal to the width or height of the thumbView
          (the thumbView has 1:1 aspect ratio)
         */
         
@@ -169,21 +170,26 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     
     ///Just cosmetic view for manipulating the saturation
     private func manageSaturationView(){
-        saturationView = UIView(frame: backgroundColouredView.bounds)
-        saturationView.backgroundColor = .white
-        saturationView.alpha = 0
+        saturationView = getCosmeticView(colouredBy: .white)
         backgroundColouredView.addSubview(saturationView)
     }
     
     ///Just cosmetic view for manipulating the brightness
     private func manageBrightnessView(){
-        brightnessView = UIView(frame: backgroundColouredView.bounds)
-        brightnessView.backgroundColor = .black
-        brightnessView.alpha = 0
+        brightnessView = getCosmeticView(colouredBy: .black)
         backgroundColouredView.addSubview(brightnessView)
     }
     
-    ///Thumb view is something is a controller
+    ///DRY
+    private func getCosmeticView(colouredBy colour: UIColor) -> UIView{
+        let cosmeticView = UIView(frame: backgroundColouredView.bounds)
+        cosmeticView.backgroundColor = colour
+        cosmeticView.alpha = 0
+        
+        return cosmeticView
+    }
+    
+    ///Thumb view is the HUE value controller
     private func addThumbView(){
         let thumbHeight: CGFloat = getThumbHeight()
         
@@ -213,7 +219,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         self.addSubview(thumbView)
     }
     
-    ///set thumb position and slider's cometic views alpha by UIColour
+    ///Set the thumb position and slider's cometic views alpha by UIColour
     public func setSliderValueBy(colour: UIColor){
         var hsba: (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat) = (0, 1, 1, 1)
         colour.getHue(&hsba.h, saturation: &hsba.s, brightness: &hsba.b, alpha: &hsba.a)
@@ -229,7 +235,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         thumbView.backgroundColor = colourChosen
     }
     
-    ///set thumb position and slider's cometic views alpha by manual HSBA parameters
+    ///Set the thumb position and slider's cometic views alpha by manual HSBA parameters
     public func setSliderValueByColourValues(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat){
         
         thumbView.layer.position.x = calculateThumbXPosition(by: hue)
@@ -267,7 +273,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     
     //MARK: - GETTING CURRENT VALUES
     
-    ///Returns components of colourChosen in RGBA
+    ///Returns components of colourChosen in RGBA when calling
     public func getCurrentRGBAValues() -> (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat){
         var r: CGFloat = 0
         var g: CGFloat = 0
@@ -284,7 +290,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         return (red: r, green: g, blue: b, alpha: a)
     }
     
-    ///Returns components of colourChosen in HSBA
+    ///Returns components of colourChosen in HSBA when calling
     public func getCurrentHSBAValues() -> (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat){
         var hsba: (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat) = (0, 1, 1, 1)
         colourChosen.getHue(&hsba.h, saturation: &hsba.s, brightness: &hsba.b, alpha: &hsba.a)
@@ -292,6 +298,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
     }
     
     //MARK: - GESTURE
+    
     @objc open func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         let translation = gestureRecognizer.translation(in: backgroundColouredView)
         if let view = gestureRecognizer.view{
@@ -323,6 +330,7 @@ open class RSColourSlider: UIView, UIGestureRecognizerDelegate {
         gestureRecognizer.setTranslation(CGPoint.zero, in: backgroundColouredView)
     
     }
+    
     ///Getting the differnece of position of pulled thumbView inside the superview but backgroundColouredView used as the anchor
     private func getHueValueFrom(xValue: CGFloat) -> CGFloat{
         return (xValue / backgroundColouredView.bounds.width) - (self.thumbView.bounds.width / 2 / backgroundColouredView.bounds.width)
